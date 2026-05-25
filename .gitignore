@@ -1,0 +1,7 @@
+# Publish the interactive HTML site only.
+# Keep the analysis workbook and print PDFs off the public page.
+*.xlsx
+*.pdf
+*.png
+_*
+.DS_Store
