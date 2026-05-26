@@ -257,11 +257,11 @@ function showCard(name, wk){
     +'<div class="msub">Week '+c.wk+' &middot; '+c.nine+' &middot; '+c.date
     +(c.tee?(' &middot; '+c.tee):'')+(c.hi!=null?(' &middot; GHIN '+c.hi):'')+'</div></div>'
     +'<button class="mclose" onclick="hideCard()">&times;</button></div>'
-    +'<table class="scores" style="border-radius:8px"><thead><tr><th>Hole</th>'
+    +'<div class="tscroll"><table class="scores" style="border-radius:8px"><thead><tr><th>Hole</th>'
     +holes+'<th class="tot">Tot</th></tr></thead><tbody>'
     +'<tr class="par"><td class="rowlbl">Par</td>'+pars+'<td class="tot">'+parTot+'</td></tr>'
     +'<tr><td class="rowlbl">Score</td>'+scores+'<td class="tot">'+c.g+'</td></tr>'
-    +'</tbody></table>'
+    +'</tbody></table></div>'
     +'<div class="mtot">Gross <b>'+c.g+'</b> &nbsp;&middot;&nbsp; Net <b>'+c.n
     +'</b> &nbsp;&middot;&nbsp; To Par <b>'+c.tp+'</b></div>'
     +'<div class="mtot msub">'+tallyStr(tally(c,{e:0,b:0,p:0,bo:0,d:0}))+'</div>';
