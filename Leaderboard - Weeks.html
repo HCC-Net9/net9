@@ -143,6 +143,8 @@ footer { display:flex; align-items:center; justify-content:space-between;
 .wk-card .m { font-size:11px; color:#6b7770; margin-top:2px; }
 /* wide tables scroll sideways instead of overflowing (phones) */
 .tscroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+/* popups keep an internal scroll (they're fixed-size modals) */
+.mscroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
 @media screen and (max-width:760px) {
   .sheet { padding:12px 10px; }
   .mast { flex-wrap:wrap; gap:8px 12px; }
@@ -152,6 +154,9 @@ footer { display:flex; align-items:center; justify-content:space-between;
   .mast .meta { font-size:11px; text-align:left; }
   .prog-row { margin:10px 0 14px; }
   .scores th, .scores td, .stats th, .stats td { white-space:nowrap; }
+  /* let wide page tables overflow so the page can be pinch-zoomed to fit
+     all columns (instead of scrolling inside a fixed-width box) */
+  .tscroll { overflow:visible; }
   .hub-btns { flex-direction:column; }
   .hub-btn { min-width:0; }
   #modal { min-width:0; width:94vw; padding:14px; }
@@ -255,7 +260,7 @@ function showCard(name, wk){
     +'<div class="msub">Week '+c.wk+' &middot; '+c.nine+' &middot; '+c.date
     +(c.tee?(' &middot; '+c.tee):'')+(c.hi!=null?(' &middot; GHIN '+c.hi):'')+'</div></div>'
     +'<button class="mclose" onclick="hideCard()">&times;</button></div>'
-    +'<div class="tscroll"><table class="scores" style="border-radius:8px"><thead><tr><th>Hole</th>'
+    +'<div class="mscroll"><table class="scores" style="border-radius:8px"><thead><tr><th>Hole</th>'
     +holes+'<th class="tot">Tot</th></tr></thead><tbody>'
     +'<tr class="par"><td class="rowlbl">Par</td>'+pars+'<td class="tot">'+parTot+'</td></tr>'
     +'<tr><td class="rowlbl">Score</td>'+scores+'<td class="tot">'+c.g+'</td></tr>'
@@ -304,7 +309,7 @@ function showSeason(name){
   var html = '<div class="mhead"><div><h3>'+name+'</h3>'
     +'<div class="msub">'+wks.length+' rounds</div></div>'
     +'<button class="mclose" onclick="hideCard()">&times;</button></div>'
-    +'<div style="overflow-x:auto"><table class="scores season"><thead><tr>'+head+'</tr></thead>'
+    +'<div class="mscroll"><table class="scores season"><thead><tr>'+head+'</tr></thead>'
     +'<tbody><tr class="par">'+parRow+'</tr>'+rows+avgRow+'</tbody></table></div>'
     +'<div class="mtot msub" style="margin-top:8px">Season: '+tallyStr(sa)+'</div>';
   document.getElementById('mbody').innerHTML = html;

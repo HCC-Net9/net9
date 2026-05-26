@@ -143,6 +143,8 @@ footer { display:flex; align-items:center; justify-content:space-between;
 .wk-card .m { font-size:11px; color:#6b7770; margin-top:2px; }
 /* wide tables scroll sideways instead of overflowing (phones) */
 .tscroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+/* popups keep an internal scroll (they're fixed-size modals) */
+.mscroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
 @media screen and (max-width:760px) {
   .sheet { padding:12px 10px; }
   .mast { flex-wrap:wrap; gap:8px 12px; }
@@ -152,6 +154,9 @@ footer { display:flex; align-items:center; justify-content:space-between;
   .mast .meta { font-size:11px; text-align:left; }
   .prog-row { margin:10px 0 14px; }
   .scores th, .scores td, .stats th, .stats td { white-space:nowrap; }
+  /* let wide page tables overflow so the page can be pinch-zoomed to fit
+     all columns (instead of scrolling inside a fixed-width box) */
+  .tscroll { overflow:visible; }
   .hub-btns { flex-direction:column; }
   .hub-btn { min-width:0; }
   #modal { min-width:0; width:94vw; padding:14px; }
