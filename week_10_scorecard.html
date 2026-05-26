@@ -101,8 +101,9 @@ td.sc { position:relative; }
 .scores tbody td.cl-name:hover { color:#0e4a32; text-decoration:underline; }
 #overlay { display:none; position:fixed; inset:0; background:rgba(18,28,23,.55);
            align-items:center; justify-content:center; z-index:50; }
-#modal { background:#fff; border-radius:12px; padding:18px 20px; min-width:520px;
-         max-width:90vw; box-shadow:0 18px 50px rgba(0,0,0,.32); }
+#modal { background:#fff; border-radius:12px; padding:18px 20px;
+         max-width:94vw; max-height:88vh; overflow-y:auto; overflow-x:hidden;
+         box-shadow:0 18px 50px rgba(0,0,0,.32); }
 .mhead { display:flex; justify-content:space-between; align-items:baseline;
          border-bottom:2px solid #0e4a32; padding-bottom:8px; margin-bottom:12px; }
 .mhead h3 { margin:0; font-size:18px; color:#0e4a32; }
@@ -118,15 +119,6 @@ td.sc { position:relative; }
 .season .sep { border-left:2px solid #b9c4be; }
 .avgrow td { font-weight:700; background:#eef3ef; border-top:2px solid #0e4a32; }
 .avgrow td:first-child { text-align:left; padding-left:12px; }
-/* popup tables: equal-width hole columns + fixed score box so dots don't shift */
-.popcard { table-layout:fixed; }
-.popcard th, .popcard td { width:30px; }
-.popcard th:first-child, .popcard td:first-child { width:54px; }
-.popcard .tot { width:38px; }
-.popcard .scwrap { display:inline-flex; width:23px; height:23px;
-                   align-items:center; justify-content:center; }
-.popcard.season th, .popcard.season td { width:27px; }
-.popcard.season .scwrap { width:21px; height:21px; }
 
 footer { display:flex; align-items:center; justify-content:space-between;
          margin-top:14px; font-size:11px; color:#6b7770; transform:translateY(-4px); }
@@ -170,7 +162,10 @@ footer { display:flex; align-items:center; justify-content:space-between;
   .zoomwrap { overflow:visible; }
   .hub-btns { flex-direction:column; }
   .hub-btn { min-width:0; }
-  #modal { min-width:0; width:94vw; padding:14px; }
+  #modal { padding:12px; }
+  /* shrink popup cells so more holes fit before needing to scroll */
+  #modal .scores td, #modal .scores th { padding:2px 5px; font-size:11px; }
+  #modal .mk { width:18px; height:18px; }
 }
 @media print { .tscroll, .zoomwrap { overflow:visible; } }
 @page { margin:11mm; }
