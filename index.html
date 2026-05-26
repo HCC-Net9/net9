@@ -82,6 +82,7 @@ thead th.tot.lb, .lb thead th.tot { background:#093b27; }
 
 /* score markers */
 td.sc { position:relative; }
+.scwrap { position:relative; display:inline-block; line-height:1; }
 .mk { display:inline-flex; align-items:center; justify-content:center;
       width:23px; height:23px; line-height:1; font-variant-numeric:tabular-nums; }
 .birdie { border:1.6px solid #1c2420; border-radius:50%; }
@@ -91,7 +92,7 @@ td.sc { position:relative; }
 .double { border:1.6px solid #1c2420; border-radius:3px;
           box-shadow:0 0 0 1.6px #fff, 0 0 0 3.1px #1c2420; }
 /* handicap stroke dots (top-right corner) */
-.pops { position:absolute; top:3px; right:4px; display:flex; gap:1.5px; }
+.pops { position:absolute; top:-4px; right:-5px; display:flex; gap:1.5px; }
 .pop { width:4px; height:4px; border-radius:50%; background:#c0392b; }
 
 /* interactive leaderboard: clickable cells + popup */
