@@ -1,5 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HCC Net 9 &mdash; 2026 Season</title>
 <style>
 :root {
@@ -142,6 +141,22 @@ footer { display:flex; align-items:center; justify-content:space-between;
 .wk-card:hover { border-color:#0e4a32; background:#f6f8f7; }
 .wk-card .w { font-weight:700; color:#0e4a32; }
 .wk-card .m { font-size:11px; color:#6b7770; margin-top:2px; }
+/* wide tables scroll sideways instead of overflowing (phones) */
+.tscroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+@media screen and (max-width:760px) {
+  .sheet { padding:12px 10px; }
+  .mast { flex-wrap:wrap; gap:8px 12px; }
+  .mast-l, .titles { min-width:0; }
+  .mast h1 { font-size:18px; }
+  .mast .brand { font-size:11px; }
+  .mast .meta { font-size:11px; text-align:left; }
+  .prog-row { margin:10px 0 14px; }
+  .scores th, .scores td, .stats th, .stats td { white-space:nowrap; }
+  .hub-btns { flex-direction:column; }
+  .hub-btn { min-width:0; }
+  #modal { min-width:0; width:94vw; padding:14px; }
+}
+@media print { .tscroll { overflow:visible; } }
 @page { margin:11mm; }
 
 /* page-wrapper so the masthead (thead) and legend (tfoot) repeat on every
