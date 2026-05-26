@@ -119,6 +119,15 @@ td.sc { position:relative; }
 .season .sep { border-left:2px solid #b9c4be; }
 .avgrow td { font-weight:700; background:#eef3ef; border-top:2px solid #0e4a32; }
 .avgrow td:first-child { text-align:left; padding-left:12px; }
+/* popup tables: equal-width hole columns + fixed score box so dots don't shift */
+.popcard { table-layout:fixed; }
+.popcard th, .popcard td { width:30px; }
+.popcard th:first-child, .popcard td:first-child { width:54px; }
+.popcard .tot { width:38px; }
+.popcard .scwrap { display:inline-flex; width:23px; height:23px;
+                   align-items:center; justify-content:center; }
+.popcard.season th, .popcard.season td { width:27px; }
+.popcard.season .scwrap { width:21px; height:21px; }
 
 footer { display:flex; align-items:center; justify-content:space-between;
          margin-top:14px; font-size:11px; color:#6b7770; transform:translateY(-4px); }
@@ -146,6 +155,8 @@ footer { display:flex; align-items:center; justify-content:space-between;
 .tscroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
 /* popups keep an internal scroll (they're fixed-size modals) */
 .mscroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+/* weekly scorecards: let the table overflow so phones can zoom out to fit */
+.zoomwrap { overflow-x:auto; }
 @media screen and (max-width:760px) {
   .sheet { padding:12px 10px; }
   .mast { flex-wrap:wrap; gap:8px 12px; }
@@ -155,14 +166,14 @@ footer { display:flex; align-items:center; justify-content:space-between;
   .mast .meta { font-size:11px; text-align:left; }
   .prog-row { margin:10px 0 14px; }
   .scores th, .scores td, .stats th, .stats td { white-space:nowrap; }
-  /* let wide page tables overflow so the page can be pinch-zoomed to fit
-     all columns (instead of scrolling inside a fixed-width box) */
-  .tscroll { overflow:visible; }
+  /* weekly scorecards overflow so the page can be pinch-zoomed to fit all
+     columns; leaderboards keep their swipe-scroll (.tscroll) */
+  .zoomwrap { overflow:visible; }
   .hub-btns { flex-direction:column; }
   .hub-btn { min-width:0; }
   #modal { min-width:0; width:94vw; padding:14px; }
 }
-@media print { .tscroll { overflow:visible; } }
+@media print { .tscroll, .zoomwrap { overflow:visible; } }
 @page { margin:11mm; }
 
 /* page-wrapper so the masthead (thead) and legend (tfoot) repeat on every
