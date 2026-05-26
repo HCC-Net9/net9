@@ -240,7 +240,7 @@ table.pagewrap { width:100%; border:none; border-radius:0; overflow:visible; }
 function mkCell(g, marker, strokes, extra){
   extra = extra ? (' '+extra) : '';
   if(g==null) return '<td class="sc'+extra+'"></td>';
-  var inner = marker ? '<span class="mk '+marker+'">'+g+'</span>' : g;
+  var inner = '<span class="mk'+(marker?' '+marker:'')+'">'+g+'</span>';
   var dots='';
   if(strokes>0){ for(var i=0;i<Math.min(strokes,3);i++){ dots+='<i class="pop"></i>'; }
     dots='<span class="pops">'+dots+'</span>'; }
